@@ -6,95 +6,114 @@
 <title>AMA Health · AI Assistant for CUF · WhatsApp</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#f0f2f6;--card:#fff;
-  --border:rgba(15,23,42,.1);--border-hi:rgba(15,23,42,.16);
-  --teal:#0d9488;--blue:#2563eb;--amber:#d97706;--red:#dc2626;
-  --w:#0f172a;--g1:#334155;--g2:#64748b;--g3:#e2e8f0;
-  --gt:0 8px 32px rgba(13,148,136,.16);
-  --gb:0 8px 32px rgba(61,111,212,.14);
-  --inner-max:1100px;--slide-pad-y:56px;--slide-pad-x:72px;
+  --bg:#fbfbfd;--card:#fff;
+  --border:rgba(0,0,0,.06);--border-hi:rgba(0,0,0,.1);
+  --teal:#0d9488;--blue:#0071e3;--amber:#bf4800;--red:#d70015;
+  --w:#1d1d1f;--g1:#424245;--g2:#86868b;--g3:#d2d2d7;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Inter',system-ui,sans-serif;
+  --inner-max:1180px;--slide-pad-y:64px;--slide-pad-x:80px;
+  --fs-body:21px;--fs-card:19px;--fs-small:17px;--fs-caption:15px;--fs-label:13px;
 }
 html,body{width:100%;height:100%;height:100dvh;overflow:hidden;background:var(--bg);color:var(--w);
-  font-family:'Syne',sans-serif;-webkit-font-smoothing:antialiased}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.35;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E")}
-.orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:.28;pointer-events:none}
-.o1{width:700px;height:700px;background:var(--teal);top:-250px;right:-200px}
-.o2{width:500px;height:500px;background:var(--blue);bottom:-200px;left:-150px}
-#prog{position:fixed;top:0;left:0;height:1px;background:var(--teal);box-shadow:0 0 8px var(--teal);transition:width .5s;z-index:1000}
-#logo{position:fixed;top:26px;left:36px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--g2);text-transform:uppercase;z-index:1000}
-#ctr{position:fixed;top:26px;right:36px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--g2);z-index:1000}
-.nb{position:fixed;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:var(--card);border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:100;transition:all .2s;box-shadow:0 4px 16px rgba(15,23,42,.06)}
-.nb:hover{transform:translateY(-50%) scale(1.05);border-color:var(--teal);box-shadow:var(--gt)}
-.nb svg{width:18px;height:18px;stroke:var(--w);stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
-#bp{left:24px}#bn{right:24px}
-.slide{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:var(--slide-pad-y) var(--slide-pad-x);opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s;overflow:auto}
+  font-family:var(--font);font-size:var(--fs-body);line-height:1.47059;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+#prog{position:fixed;top:0;left:0;height:2px;background:var(--teal);transition:width .45s ease;z-index:1000}
+#logo{position:fixed;top:28px;left:40px;font-size:var(--fs-label);letter-spacing:.08em;color:var(--g2);
+  text-transform:uppercase;font-weight:500;z-index:1000}
+#ctr{position:fixed;top:28px;right:40px;font-size:var(--fs-label);letter-spacing:.04em;color:var(--g2);
+  font-weight:500;z-index:1000;font-variant-numeric:tabular-nums}
+.nb{position:fixed;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;
+  background:rgba(255,255,255,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--border);cursor:pointer;display:flex;align-items:center;justify-content:center;
+  z-index:100;transition:background .2s,transform .2s;box-shadow:0 4px 24px rgba(0,0,0,.06)}
+.nb:hover{transform:translateY(-50%) scale(1.04);background:#fff}
+.nb svg{width:20px;height:20px;stroke:var(--w);stroke-width:1.75;fill:none;stroke-linecap:round;stroke-linejoin:round}
+#bp{left:28px}#bn{right:28px}
+.slide{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+  padding:var(--slide-pad-y) var(--slide-pad-x);opacity:0;visibility:hidden;
+  transition:opacity .45s ease,visibility .45s;overflow:auto}
 .slide.active{opacity:1;visibility:visible}
 .inner{max-width:var(--inner-max);width:100%;position:relative;z-index:2}
-.ey{display:inline-flex;align-items:center;gap:10px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.15em;color:var(--g2);text-transform:uppercase;margin-bottom:18px}
-.ey::before{content:'';width:24px;height:1px;background:var(--teal)}
-.h1{font-size:clamp(44px,7vw,84px);font-weight:800;line-height:1;letter-spacing:-.02em;margin-bottom:18px}
-.h2{font-size:clamp(32px,4.4vw,52px);font-weight:700;line-height:1.05;letter-spacing:-.01em;margin-bottom:16px}
-.h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.ey{font-size:var(--fs-label);letter-spacing:.06em;color:var(--g2);text-transform:uppercase;
+  font-weight:500;margin-bottom:20px}
+.h1{font-size:clamp(56px,8.5vw,96px);font-weight:600;line-height:1.04;letter-spacing:-.035em;margin-bottom:20px}
+.h2{font-size:clamp(40px,5.8vw,68px);font-weight:600;line-height:1.06;letter-spacing:-.03em;margin-bottom:20px}
+.h3{font-size:26px;font-weight:600;line-height:1.2;letter-spacing:-.02em;margin-bottom:10px}
 .am{color:var(--teal)}.ab{color:var(--blue)}
-.sub{font-size:clamp(15px,1.4vw,18px);color:var(--g1);line-height:1.55}
-.div{width:48px;height:2px;background:var(--teal);margin:14px 0 22px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:100%}
-.grid-2x2{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:24px;width:100%}
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;transition:all .25s}
-.card:hover{border-color:var(--border-hi);transform:translateY(-2px)}
-.mc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px}
-.ml{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;color:var(--g2);text-transform:uppercase;margin-bottom:10px}
-.mv{font-size:26px;font-weight:700;margin-bottom:4px}
+.sub{font-size:clamp(19px,2vw,24px);color:var(--g1);line-height:1.5;font-weight:400}
+.div{width:40px;height:1px;background:var(--g3);margin:18px 0 24px}
+.p{font-size:var(--fs-card);color:var(--g1);line-height:1.55}
+.ps{font-size:var(--fs-small);color:var(--g2);line-height:1.5}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%}
+.grid-2x2{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:32px;width:100%}
+.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;
+  box-shadow:0 2px 16px rgba(0,0,0,.04)}
+.card p,.card .p{font-size:var(--fs-card);color:var(--g1);line-height:1.55}
+.mc{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:24px;
+  box-shadow:0 2px 12px rgba(0,0,0,.03)}
+.ml{font-size:var(--fs-label);letter-spacing:.06em;color:var(--g2);text-transform:uppercase;
+  font-weight:500;margin-bottom:12px}
+.mv{font-size:34px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
 .mv.am{color:var(--teal)}
-.ms{font-size:12px;color:var(--g2)}
-.badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:6px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;font-weight:700;text-transform:uppercase}
-.b-t{background:rgba(13,148,136,.1);color:var(--teal)}
-.b-b{background:rgba(61,111,212,.1);color:var(--blue)}
-.b-a{background:rgba(217,119,6,.1);color:var(--amber)}
-.b-w{background:rgba(15,23,42,.05);color:var(--g1)}
+.ms{font-size:var(--fs-small);color:var(--g2);line-height:1.45}
+.badge{display:inline-flex;align-items:center;padding:6px 12px;border-radius:999px;
+  font-size:var(--fs-caption);letter-spacing:.02em;font-weight:500}
+.b-t{background:rgba(13,148,136,.08);color:var(--teal)}
+.b-b{background:rgba(0,113,227,.08);color:var(--blue)}
+.b-a{background:rgba(191,72,0,.08);color:var(--amber)}
+.b-w{background:rgba(0,0,0,.04);color:var(--g1)}
 .cl{list-style:none;padding:0}
-.cl li{position:relative;padding-left:22px;margin-bottom:10px;font-size:14px;color:var(--g1);line-height:1.55}
-.cl li::before{content:'';position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%;background:var(--teal)}
-.pill{display:inline-flex;align-items:center;padding:6px 12px;border-radius:999px;font-size:12px;font-family:'Space Mono',monospace;letter-spacing:.05em;background:rgba(13,148,136,.08);color:var(--teal);margin-right:6px;margin-bottom:6px}
-.pill.pb{background:rgba(61,111,212,.08);color:var(--blue)}
-.pill.wa{background:rgba(37,211,102,.1);color:#128C7E}
-.agents{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%}
-.agent{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px}
-.agent-no{font-family:'Space Mono',monospace;font-size:10px;color:var(--g2);letter-spacing:.1em;margin-bottom:6px}
-.agent-name{font-size:15px;font-weight:700;margin-bottom:6px;color:var(--teal)}
-.agent-desc{font-size:12px;color:var(--g2);line-height:1.5}
+.cl li{position:relative;padding-left:24px;margin-bottom:14px;font-size:var(--fs-card);color:var(--g1);line-height:1.55}
+.cl li::before{content:'';position:absolute;left:0;top:11px;width:7px;height:7px;border-radius:50%;background:var(--teal)}
+.pill{display:inline-flex;align-items:center;padding:8px 16px;border-radius:999px;font-size:var(--fs-small);
+  font-weight:500;background:rgba(0,0,0,.04);color:var(--g1);margin-right:8px;margin-bottom:8px}
+.pill.pb{background:rgba(0,113,227,.08);color:var(--blue)}
+.pill.wa{background:rgba(37,211,102,.12);color:#128C7E}
+.agents{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:100%}
+.agent{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:24px;
+  box-shadow:0 2px 12px rgba(0,0,0,.03)}
+.agent-no{font-size:var(--fs-caption);color:var(--g2);letter-spacing:.04em;font-weight:500;margin-bottom:8px}
+.agent-name{font-size:22px;font-weight:600;margin-bottom:8px;color:var(--w);letter-spacing:-.02em}
+.agent-desc{font-size:var(--fs-small);color:var(--g2);line-height:1.5}
 .tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;width:100%}
-.ti{display:flex;flex-direction:column;align-items:center;padding:0 10px;position:relative}
-.tl-node{display:flex;justify-content:center;align-items:center;width:100%;height:42px;margin-bottom:14px}
-.ti:not(:last-child)::after{content:'';position:absolute;top:21px;left:calc(50% + 21px);width:calc(100% - 42px);height:2px;background:var(--teal);z-index:0}
-.td{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;position:relative;z-index:1;background:var(--card);border:2px solid var(--teal);color:var(--teal);box-shadow:var(--gt)}
-.td.off{border-color:var(--g3);color:var(--g2);box-shadow:none}
-.tlab{font-size:12px;font-family:'Space Mono',monospace;color:var(--g2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;text-align:center}
-.ttit{font-size:16px;font-weight:700;margin-bottom:6px;text-align:center}
-.ttxt{font-size:13px;color:var(--g2);line-height:1.5;text-align:center}
-.contact-link{color:var(--w);text-decoration:none;border-bottom:1px solid rgba(15,23,42,.2)}
-.contact-link:hover{color:var(--teal);border-color:var(--teal)}
-.chat{display:flex;flex-direction:column;gap:8px;width:100%}
-.bub{max-width:88%;padding:10px 14px;border-radius:14px;font-size:14px;line-height:1.45}
-.bub.u{align-self:flex-end;background:rgba(61,111,212,.12);border:1px solid rgba(61,111,212,.2);border-bottom-right-radius:4px}
-.bub.b{align-self:flex-start;background:rgba(13,148,136,.1);border:1px solid rgba(13,148,136,.22);border-bottom-left-radius:4px}
-.wa-head{display:flex;align-items:center;gap:10px;padding:12px 14px;background:#075e54;color:#fff;border-radius:12px 12px 0 0;font-size:13px;font-weight:700}
-.wa-box{background:#e5ddd5;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
-.wa-body{padding:14px}
-.note{margin-top:16px;padding:14px 18px;border-radius:10px;background:rgba(13,148,136,.06);border:1px solid rgba(13,148,136,.2);font-size:13px;color:var(--g1);line-height:1.5}
-@media(max-width:1023px){:root{--slide-pad-x:36px}.grid-3,.agents{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}.tl{grid-template-columns:1fr 1fr}.ti:not(:last-child)::after{display:none}}
+.ti{display:flex;flex-direction:column;align-items:center;padding:0 12px;position:relative}
+.tl-node{display:flex;justify-content:center;align-items:center;width:100%;height:52px;margin-bottom:16px}
+.ti:not(:last-child)::after{content:'';position:absolute;top:26px;left:calc(50% + 26px);
+  width:calc(100% - 52px);height:1px;background:var(--g3);z-index:0}
+.td{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:var(--fs-small);font-weight:600;position:relative;z-index:1;background:var(--card);
+  border:1.5px solid var(--teal);color:var(--teal)}
+.td.off{border-color:var(--g3);color:var(--g2)}
+.tlab{font-size:var(--fs-caption);color:var(--g2);text-transform:uppercase;letter-spacing:.06em;
+  font-weight:500;margin-bottom:8px;text-align:center}
+.ttit{font-size:22px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px;text-align:center}
+.ttxt{font-size:var(--fs-small);color:var(--g2);line-height:1.5;text-align:center}
+.contact-link{color:var(--w);text-decoration:none}
+.contact-link:hover{color:var(--teal)}
+.chat{display:flex;flex-direction:column;gap:10px;width:100%}
+.bub{max-width:88%;padding:14px 18px;border-radius:18px;font-size:var(--fs-small);line-height:1.45}
+.bub.u{align-self:flex-end;background:#e9e9eb;color:var(--w);border-bottom-right-radius:6px}
+.bub.b{align-self:flex-start;background:#fff;color:var(--w);border:1px solid var(--border);border-bottom-left-radius:6px}
+.wa-head{display:flex;align-items:center;gap:10px;padding:16px 18px;background:#f5f5f7;color:var(--w);
+  border-bottom:1px solid var(--border);font-size:var(--fs-small);font-weight:600}
+.wa-box{background:#fff;border-radius:20px;overflow:hidden;border:1px solid var(--border);
+  box-shadow:0 8px 32px rgba(0,0,0,.06)}
+.wa-body{padding:18px;background:#fbfbfd}
+.note{margin-top:20px;padding:20px 24px;border-radius:16px;background:rgba(0,0,0,.03);
+  border:1px solid var(--border);font-size:var(--fs-small);color:var(--g1);line-height:1.55}
+.contact-name{font-size:30px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
+.contact-role{font-size:var(--fs-small);color:var(--g2)}
+.contact-info{font-size:var(--fs-card);line-height:1.7}
+@media(max-width:1023px){:root{--slide-pad-x:40px;--fs-body:19px;--fs-card:18px}.grid-3,.agents{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}.tl{grid-template-columns:1fr 1fr}.ti:not(:last-child)::after{display:none}}
 @media(max-width:767px){.grid-3,.agents,.tl{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="orb o1"></div>
-<div class="orb o2"></div>
 <div id="prog"></div>
 <div id="logo">AMA HEALTH · CUF PORTUGAL · WHATSAPP</div>
 <div id="ctr">01 / 11</div>
@@ -118,13 +137,13 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
       <span class="pill">Booking &amp; FAQ</span>
     </div>
   </div>
-  <div class="card" style="padding:32px">
+  <div class="card" style="padding:36px">
     <div class="ml">What we are proposing</div>
-    <div class="h3" style="font-size:22px;margin-bottom:12px">An AI assistant on WhatsApp for CUF patients</div>
-    <p class="sub" style="font-size:15px;margin-bottom:18px">Answers questions, guides to the right unit and specialty, collects booking requests — synced with CUF's public knowledge base.</p>
-    <div style="height:1px;background:var(--border);margin-bottom:18px"></div>
-    <div style="font-size:13px;line-height:1.8">
-      <strong style="font-family:'Space Mono',monospace;color:var(--g2);font-size:11px">CONTACT</strong><br>
+    <div class="h3" style="margin-bottom:14px">An AI assistant on WhatsApp for CUF patients</div>
+    <p class="sub" style="font-size:var(--fs-card);margin-bottom:22px">Answers questions, guides to the right unit and specialty, collects booking requests — synced with CUF's public knowledge base.</p>
+    <div style="height:1px;background:var(--border);margin-bottom:22px"></div>
+    <div class="contact-info">
+      <div class="ml" style="margin-bottom:8px">Contact</div>
       Anastasia Amanova · Founder · AMA Health<br>
       <a class="contact-link" href="tel:+351910803579">+351 910 803 579</a><br>
       <a class="contact-link" href="mailto:mrs.amanova@gmail.com">mrs.amanova@gmail.com</a>
@@ -140,15 +159,15 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
   <div class="grid-3" style="margin-top:28px">
     <div class="card">
       <div class="h3">80 years of care, nationwide reach</div>
-      <p style="font-size:14px;color:var(--g1);line-height:1.55">CUF operates hospitals, clinics and health centres across Portugal — from Lisbon and Porto to regional units. Patients expect the same quality of information everywhere.</p>
+      <p class="p">CUF operates hospitals, clinics and health centres across Portugal — from Lisbon and Porto to regional units. Patients expect the same quality of information everywhere.</p>
     </div>
     <div class="card">
       <div class="h3">My CUF + Customer Support Centre</div>
-      <p style="font-size:14px;color:var(--g1);line-height:1.55">You already invest in digital access: My CUF app, FAQs, contact centre. WhatsApp is the channel patients already use — especially after hours and on mobile.</p>
+      <p class="p">You already invest in digital access: My CUF app, FAQs, contact centre. WhatsApp is the channel patients already use — especially after hours and on mobile.</p>
     </div>
     <div class="card">
       <div class="h3">Complex navigation by design</div>
-      <p style="font-size:14px;color:var(--g1);line-height:1.55">50+ specialties, many units, varying hours and urgent-care rules. The friction is not medical quality — it is finding the right unit, specialty and next step.</p>
+      <p class="p">50+ specialties, many units, varying hours and urgent-care rules. The friction is not medical quality — it is finding the right unit, specialty and next step.</p>
     </div>
   </div>
   <div class="g2" style="margin-top:18px">
@@ -163,10 +182,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
   <div class="ey">Where large networks lose patients</div>
   <h2 class="h2">Typical <span class="am">pressure points</span></h2>
   <div class="grid-2x2" style="margin-top:28px;gap:14px">
-    <div class="card"><span class="badge b-a" style="margin-bottom:10px;display:inline-block">PAIN #1</span><div class="h3">Support centre overload</div><p style="font-size:13px;color:var(--g1);line-height:1.55">Repeated questions on hours, locations, specialties and indicative prices consume agent time — the same answers, hundreds of times a day.</p></div>
-    <div class="card"><span class="badge b-a" style="margin-bottom:10px;display:inline-block">PAIN #2</span><div class="h3">After-hours gap</div><p style="font-size:13px;color:var(--g1);line-height:1.55">Patients message when clinics are closed. Without instant replies, they call tomorrow, use a competitor, or drop the request.</p></div>
-    <div class="card"><span class="badge b-a" style="margin-bottom:10px;display:inline-block">PAIN #3</span><div class="h3">Booking friction</div><p style="font-size:14px;color:var(--g1);line-height:1.55">City → unit → specialty → availability is hard on a website. On WhatsApp patients expect a conversation, not a maze of forms.</p></div>
-    <div class="card"><span class="badge b-a" style="margin-bottom:10px;display:inline-block">PAIN #4</span><div class="h3">Language mix</div><p style="font-size:13px;color:var(--g1);line-height:1.55">Expats, tourists and bilingual families need English and Portuguese in the same channel — without waiting for the right agent.</p></div>
+    <div class="card"><span class="badge b-a" style="margin-bottom:12px;display:inline-block">Pain #1</span><div class="h3">Support centre overload</div><p class="p">Repeated questions on hours, locations, specialties and indicative prices consume agent time — the same answers, hundreds of times a day.</p></div>
+    <div class="card"><span class="badge b-a" style="margin-bottom:12px;display:inline-block">Pain #2</span><div class="h3">After-hours gap</div><p class="p">Patients message when clinics are closed. Without instant replies, they call tomorrow, use a competitor, or drop the request.</p></div>
+    <div class="card"><span class="badge b-a" style="margin-bottom:12px;display:inline-block">Pain #3</span><div class="h3">Booking friction</div><p class="p">City → unit → specialty → availability is hard on a website. On WhatsApp patients expect a conversation, not a maze of forms.</p></div>
+    <div class="card"><span class="badge b-a" style="margin-bottom:12px;display:inline-block">Pain #4</span><div class="h3">Language mix</div><p class="p">Expats, tourists and bilingual families need English and Portuguese in the same channel — without waiting for the right agent.</p></div>
   </div>
 </div>
 </section>
@@ -205,10 +224,10 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
     </div>
     <div>
       <div class="ml" style="margin-bottom:12px">What happened</div>
-      <div class="card" style="margin-bottom:10px"><div class="h3" style="font-size:15px;color:var(--teal)">Replied in seconds</div><p style="font-size:13px;color:var(--g1)">Outside call-centre peak hours</p></div>
-      <div class="card" style="margin-bottom:10px"><div class="h3" style="font-size:15px;color:var(--teal)">Right unit suggested</div><p style="font-size:13px;color:var(--g1)">From CUF location knowledge base</p></div>
-      <div class="card" style="margin-bottom:10px"><div class="h3" style="font-size:15px;color:var(--teal)">Booking request captured</div><p style="font-size:13px;color:var(--g1)">No forms, no hold music</p></div>
-      <div class="card"><div class="h3" style="font-size:15px;color:var(--teal)">Patient stayed in channel</div><p style="font-size:13px;color:var(--g1)">Did not leave to Google or a competitor</p></div>
+      <div class="card" style="margin-bottom:12px"><div class="h3" style="font-size:22px;color:var(--teal)">Replied in seconds</div><p class="ps">Outside call-centre peak hours</p></div>
+      <div class="card" style="margin-bottom:12px"><div class="h3" style="font-size:22px;color:var(--teal)">Right unit suggested</div><p class="ps">From CUF location knowledge base</p></div>
+      <div class="card" style="margin-bottom:12px"><div class="h3" style="font-size:22px;color:var(--teal)">Booking request captured</div><p class="ps">No forms, no hold music</p></div>
+      <div class="card"><div class="h3" style="font-size:22px;color:var(--teal)">Patient stayed in channel</div><p class="ps">Did not leave to Google or a competitor</p></div>
     </div>
   </div>
 </div>
@@ -220,12 +239,12 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
   <h2 class="h2">Powered by <span class="am">cuf.pt</span> data</h2>
   <p class="sub" style="margin-bottom:24px;max-width:860px">We sync structured knowledge from your public website — so answers stay current without manual copy-paste.</p>
   <div class="grid-3">
-    <div class="card"><div class="h3">50+ specialties</div><p style="font-size:14px;color:var(--g1);line-height:1.55">Consultations, exams, procedures — mapped from cuf.pt speciality pages.</p></div>
-    <div class="card"><div class="h3">Unit directory</div><p style="font-size:14px;color:var(--g1);line-height:1.55">Hospitals and clinics by city — addresses, hours, urgent-care notes where published.</p></div>
-    <div class="card"><div class="h3">Doctor catalogue</div><p style="font-size:14px;color:var(--g1);line-height:1.55">Searchable by specialty and location — for informed patient guidance.</p></div>
-    <div class="card"><div class="h3">Indicative prices</div><p style="font-size:14px;color:var(--g1);line-height:1.55">From public CUF price tables — always with confirmation via My CUF or reception.</p></div>
-    <div class="card"><div class="h3">FAQ &amp; policies</div><p style="font-size:14px;color:var(--g1);line-height:1.55">My CUF, Plano +CUF, preventive care, contact numbers — in EN and PT.</p></div>
-    <div class="card"><div class="h3">Weekly refresh</div><p style="font-size:14px;color:var(--g1);line-height:1.55">Automated sync pipeline — knowledge stays aligned with the website.</p></div>
+    <div class="card"><div class="h3">50+ specialties</div><p class="p">Consultations, exams, procedures — mapped from cuf.pt speciality pages.</p></div>
+    <div class="card"><div class="h3">Unit directory</div><p class="p">Hospitals and clinics by city — addresses, hours, urgent-care notes where published.</p></div>
+    <div class="card"><div class="h3">Doctor catalogue</div><p class="p">Searchable by specialty and location — for informed patient guidance.</p></div>
+    <div class="card"><div class="h3">Indicative prices</div><p class="p">From public CUF price tables — always with confirmation via My CUF or reception.</p></div>
+    <div class="card"><div class="h3">FAQ &amp; policies</div><p class="p">My CUF, Plano +CUF, preventive care, contact numbers — in EN and PT.</p></div>
+    <div class="card"><div class="h3">Weekly refresh</div><p class="p">Automated sync pipeline — knowledge stays aligned with the website.</p></div>
   </div>
 </div>
 </section>
@@ -278,7 +297,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
   <h2 class="h2">Phased <span class="am">pilot</span></h2>
   <div class="g2" style="margin-top:28px;align-items:start">
     <div class="card">
-      <span class="badge b-w">PHASE 1</span><span class="badge b-b" style="margin-left:6px">4–6 WEEKS</span>
+      <span class="badge b-w">Phase 1</span><span class="badge b-b" style="margin-left:8px">4–6 weeks</span>
       <div class="h3" style="margin-top:12px">WhatsApp FAQ + booking requests</div>
       <ul class="cl" style="margin-top:12px">
         <li>English + Portuguese menus and replies</li>
@@ -289,7 +308,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
       </ul>
     </div>
     <div class="card">
-      <span class="badge b-t">PHASE 2</span><span class="badge b-t" style="margin-left:6px">SCALE</span>
+      <span class="badge b-t">Phase 2</span><span class="badge b-t" style="margin-left:8px">Scale</span>
       <div class="h3" style="margin-top:12px">Deeper integration &amp; automation</div>
       <ul class="cl" style="margin-top:12px">
         <li>Live slot availability (API / My CUF integration)</li>
@@ -300,7 +319,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
       </ul>
     </div>
   </div>
-  <p class="sub" style="margin-top:18px;font-size:14px;color:var(--g2)">Commercial terms and exact scope — after a 30-minute discovery call with your digital and patient-access teams.</p>
+  <p class="ps" style="margin-top:22px">Commercial terms and exact scope — after a 30-minute discovery call with your digital and patient-access teams.</p>
 </div>
 </section>
 
@@ -309,12 +328,12 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
   <div class="ey">Why AMA Health</div>
   <h2 class="h2">Focused on <span class="am">clinical operations</span></h2>
   <div class="grid-3" style="margin-top:28px">
-    <div class="card"><div class="h3">Healthcare-native</div><p style="font-size:14px;color:var(--g1);line-height:1.55">Prompts, flows and guardrails built for hospitals and clinics — not repurposed e-commerce bots.</p></div>
-    <div class="card"><div class="h3">Bilingual from day one</div><p style="font-size:14px;color:var(--g1);line-height:1.55">Native EN and PT in one assistant — critical for Lisbon, expats and international patients.</p></div>
-    <div class="card"><div class="h3">Working prototype exists</div><p style="font-size:14px;color:var(--g1);line-height:1.55">We can demo a live CUF-configured WhatsApp assistant — not slides only.</p></div>
+    <div class="card"><div class="h3">Healthcare-native</div><p class="p">Prompts, flows and guardrails built for hospitals and clinics — not repurposed e-commerce bots.</p></div>
+    <div class="card"><div class="h3">Bilingual from day one</div><p class="p">Native EN and PT in one assistant — critical for Lisbon, expats and international patients.</p></div>
+    <div class="card"><div class="h3">Working prototype exists</div><p class="p">We can demo a live CUF-configured WhatsApp assistant — not slides only.</p></div>
   </div>
   <div class="card" style="margin-top:22px">
-    <p style="font-size:14px;color:var(--g1);line-height:1.6"><strong style="color:var(--w)">Honestly:</strong> we are a focused team, not a generic SaaS vendor. You work directly with the people who build and tune the assistant — decisions in days, not quarters.</p>
+    <p class="p"><strong style="color:var(--w)">Honestly:</strong> we are a focused team, not a generic SaaS vendor. You work directly with the people who build and tune the assistant — decisions in days, not quarters.</p>
   </div>
 </div>
 </section>
@@ -325,17 +344,17 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
   <h2 class="h2">30-minute <span class="am">discovery call</span></h2>
   <p class="sub" style="margin-bottom:32px;max-width:720px">Before any commitment — a short call to understand your patient-access priorities, WhatsApp readiness and pilot scope. We will show the live assistant and send a tailored proposal within a few days.</p>
   <div class="grid-2x2" style="gap:16px;margin-bottom:32px;max-width:800px">
-    <div class="card"><div class="agent-no">STEP 1</div><div class="h3" style="font-size:16px">Discovery call (30 min)</div><p style="font-size:13px;color:var(--g2)">Channels, volumes, booking flow, languages, integration points.</p></div>
-    <div class="card"><div class="agent-no">STEP 2</div><div class="h3" style="font-size:16px">Tailored proposal (3 days)</div><p style="font-size:13px;color:var(--g2)">Scope, KPIs, timeline, commercial terms in one document.</p></div>
-    <div class="card"><div class="agent-no">STEP 3</div><div class="h3" style="font-size:16px">Pilot kick-off</div><p style="font-size:13px;color:var(--g2)">NDA, DPA, WhatsApp Business setup, go-live in 4–6 weeks.</p></div>
-    <div class="card"><div class="agent-no">STEP 4</div><div class="h3" style="font-size:16px">Measure &amp; scale</div><p style="font-size:13px;color:var(--g2)">Review deflection, booking conversion, patient satisfaction — then expand.</p></div>
+    <div class="card"><div class="agent-no">Step 1</div><div class="h3">Discovery call (30 min)</div><p class="ps">Channels, volumes, booking flow, languages, integration points.</p></div>
+    <div class="card"><div class="agent-no">Step 2</div><div class="h3">Tailored proposal (3 days)</div><p class="ps">Scope, KPIs, timeline, commercial terms in one document.</p></div>
+    <div class="card"><div class="agent-no">Step 3</div><div class="h3">Pilot kick-off</div><p class="ps">NDA, DPA, WhatsApp Business setup, go-live in 4–6 weeks.</p></div>
+    <div class="card"><div class="agent-no">Step 4</div><div class="h3">Measure &amp; scale</div><p class="ps">Review deflection, booking conversion, patient satisfaction — then expand.</p></div>
   </div>
-  <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;padding:28px">
+  <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding:32px">
     <div>
-      <div style="font-size:22px;font-weight:700;margin-bottom:4px">Anastasia Amanova</div>
-      <div style="font-size:13px;color:var(--g2)">Founder · AMA Health</div>
+      <div class="contact-name">Anastasia Amanova</div>
+      <div class="contact-role">Founder · AMA Health</div>
     </div>
-    <div style="font-size:14px;line-height:1.8;text-align:right">
+    <div class="contact-info" style="text-align:right">
       <a class="contact-link" href="tel:+351910803579">+351 910 803 579</a><br>
       <a class="contact-link" href="mailto:mrs.amanova@gmail.com">mrs.amanova@gmail.com</a>
     </div>
