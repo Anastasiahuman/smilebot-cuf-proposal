@@ -150,13 +150,13 @@ html,body{width:100%;height:100%;height:100dvh;overflow:hidden;background:var(--
       <span class="pill wa">WhatsApp</span>
       <span class="pill">English + Portuguese</span>
       <span class="pill pb">Complements My CUF</span>
-      <span class="pill">Booking &amp; FAQ</span>
+      <span class="pill">API live booking</span>
     </div>
   </div>
   <div class="card" style="padding:36px">
     <div class="ml">What we are proposing</div>
     <div class="h3" style="margin-bottom:14px">An AI assistant on WhatsApp for CUF patients</div>
-    <p class="sub" style="font-size:var(--fs-card);margin-bottom:22px">A zero-friction front door for patients — complements My CUF, does not replace it. Answers questions, routes to the right unit, collects booking requests.</p>
+    <p class="sub" style="font-size:var(--fs-card);margin-bottom:22px">WhatsApp assistant with <strong style="color:var(--w)">direct API booking</strong> into CUF's scheduling system — plus FAQ, routing and My CUF handoff.</p>
     <div style="height:1px;background:var(--border);margin-bottom:22px"></div>
     <div class="contact-info">
       <div class="ml" style="margin-bottom:8px">Contact</div>
@@ -232,7 +232,7 @@ html,body{width:100%;height:100%;height:100dvh;overflow:hidden;background:var(--
       </ul>
     </div>
   </div>
-  <div class="note" style="margin-top:22px;padding:16px 22px"><strong>Together, not instead.</strong> Assistant on WhatsApp → My CUF when ready to book or log in.</div>
+  <div class="note" style="margin-top:22px;padding:16px 22px"><strong>Together, not instead.</strong> Bot books via API → appointment appears in My CUF.</div>
 </div>
 </section>
 
@@ -240,14 +240,14 @@ html,body{width:100%;height:100%;height:100dvh;overflow:hidden;background:var(--
 <div class="inner">
   <div class="ey">Our solution</div>
   <h2 class="h2">AMA Health AI assistant <span class="am">on WhatsApp</span></h2>
-  <p class="sub" style="margin-bottom:28px;max-width:820px">Not a replacement for My CUF — an AI layer on WhatsApp that catches patients before they reach your app or call centre. Healthcare-trained, bilingual, with safe handoff when needed.</p>
+  <p class="sub" style="margin-bottom:28px;max-width:820px">WhatsApp front door with <strong style="color:var(--w)">live appointment booking via API</strong> — connected to the same scheduling stack that powers My CUF. Bilingual, healthcare-trained, with safe handoff when needed.</p>
   <div class="agents">
-    <div class="agent"><div class="agent-no">01</div><div class="agent-name">Instant FAQ</div><div class="agent-desc">Units, specialties, hours, contacts, My CUF — answered from your knowledge base in seconds.</div></div>
-    <div class="agent"><div class="agent-no">02</div><div class="agent-name">Guided booking</div><div class="agent-desc">City → CUF unit → specialty → request captured. Admin confirms the slot — no phone tag.</div></div>
+    <div class="agent"><div class="agent-no">01</div><div class="agent-name">Instant FAQ</div><div class="agent-desc">Units, specialties, hours, contacts — from your knowledge base in seconds.</div></div>
+    <div class="agent"><div class="agent-no">02</div><div class="agent-name">Live API booking</div><div class="agent-desc">City → unit → specialty → <strong>real slot</strong> booked via CUF scheduling API. Confirmed in WhatsApp.</div></div>
     <div class="agent"><div class="agent-no">03</div><div class="agent-name">Find a clinic</div><div class="agent-desc">"Near me in Lisbon" — surfaces the right hospital or clinic with address and context.</div></div>
-    <div class="agent"><div class="agent-no">04</div><div class="agent-name">Indicative pricing</div><div class="agent-desc">Public price guidance from CUF sources, with clear disclaimer to confirm via My CUF or reception.</div></div>
+    <div class="agent"><div class="agent-no">04</div><div class="agent-name">Slot availability</div><div class="agent-desc">Live calendar from your appointment system — patient picks a time without leaving the chat.</div></div>
     <div class="agent"><div class="agent-no">05</div><div class="agent-name">Health guidance (safe)</div><div class="agent-desc">Secretary-level triage: suggests the right specialty, never diagnoses or prescribes.</div></div>
-    <div class="agent"><div class="agent-no">06</div><div class="agent-name">Human handoff</div><div class="agent-desc">Complex cases go to your team with full conversation context — patient never hits a dead end.</div></div>
+    <div class="agent"><div class="agent-no">06</div><div class="agent-name">Human handoff</div><div class="agent-desc">Complex exams or edge cases → Contact Center with full conversation context.</div></div>
   </div>
 </div>
 </section>
@@ -263,16 +263,17 @@ html,body{width:100%;height:100%;height:100dvh;overflow:hidden;background:var(--
         <div class="bub u">Hi, I need a cardiology appointment in Lisbon this week</div>
         <div class="bub b">Hello! I can help with that. We have CUF Tejo and CUF Descobertas in Lisbon. Which area is more convenient for you?</div>
         <div class="bub u">Parque das Nações</div>
-        <div class="bub b">CUF Descobertas — Parque das Nações. Cardiology consultations available. Shall I start a booking request for you?</div>
-        <div class="bub u">Yes please</div>
-        <div class="bub b">Done ✓ A CUF administrator will contact you to confirm the time. You can also book directly in My CUF — I'll send you the link.</div>
+        <div class="bub b">CUF Descobertas — Cardiology. Available: Tue 10:30, Wed 14:00, Thu 09:15. Pick a time?</div>
+        <div class="bub u">Wednesday 14:00</div>
+        <div class="bub b">Booked ✓ Cardiology · CUF Descobertas · Wed 14:00. Confirmation sent — also visible in My CUF.</div>
       </div></div>
     </div>
     <div>
       <div class="ml" style="margin-bottom:12px">What happened</div>
       <div class="card" style="margin-bottom:12px"><div class="h3" style="font-size:22px;color:var(--teal)">Replied in seconds</div><p class="ps">Outside call-centre peak hours</p></div>
       <div class="card" style="margin-bottom:12px"><div class="h3" style="font-size:22px;color:var(--teal)">Right unit suggested</div><p class="ps">From CUF location knowledge base</p></div>
-      <div class="card" style="margin-bottom:12px"><div class="h3" style="font-size:22px;color:var(--teal)">Booking request captured</div><p class="ps">No forms, no hold music</p></div>
+      <div class="card" style="margin-bottom:12px"><div class="h3" style="font-size:22px;color:var(--teal)">Live slots from API</div><p class="ps">Real availability from scheduling system</p></div>
+      <div class="card" style="margin-bottom:12px"><div class="h3" style="font-size:22px;color:var(--teal)">Appointment confirmed</div><p class="ps">Booked via API — no admin callback</p></div>
       <div class="card"><div class="h3" style="font-size:22px;color:var(--teal)">Patient stayed in channel</div><p class="ps">Did not leave to Google or a competitor</p></div>
     </div>
   </div>
@@ -295,17 +296,26 @@ html,body{width:100%;height:100%;height:100dvh;overflow:hidden;background:var(--
 </div>
 </section>
 
-<section class="slide" id="s7">
+<section class="slide slide-fit" id="s7">
 <div class="inner">
   <div class="ey">Patient journey</div>
-  <h2 class="h2">Booking flow <span class="am">inside WhatsApp</span></h2>
-  <div class="tl" style="margin-top:32px">
-    <div class="ti"><div class="tl-node"><div class="td on">1</div></div><div class="tlab">Start</div><div class="ttit">Welcome menu</div><div class="ttxt">Patient picks language (EN / PT) and topic: book, find clinic, prices, ask.</div></div>
-    <div class="ti"><div class="tl-node"><div class="td on">2</div></div><div class="tlab">Navigate</div><div class="ttit">City &amp; unit</div><div class="ttxt">Assistant suggests CUF units in the chosen city with tap-to-select buttons.</div></div>
-    <div class="ti"><div class="tl-node"><div class="td on">3</div></div><div class="tlab">Match</div><div class="ttit">Specialty</div><div class="ttxt">Guided specialty selection or triage from symptoms — always within safe limits.</div></div>
-    <div class="ti"><div class="tl-node"><div class="td off">4</div></div><div class="tlab">Confirm</div><div class="ttit">Request → admin</div><div class="ttxt">Booking request sent to your team; patient gets confirmation in WhatsApp.</div></div>
+  <h2 class="h2">Book <span class="am">via API</span> in WhatsApp</h2>
+  <div class="tl" style="margin-top:24px">
+    <div class="ti"><div class="tl-node"><div class="td on">1</div></div><div class="tlab">Start</div><div class="ttit">Welcome</div><div class="ttxt">Language + intent: book, find clinic, FAQ.</div></div>
+    <div class="ti"><div class="tl-node"><div class="td on">2</div></div><div class="tlab">Navigate</div><div class="ttit">Unit &amp; specialty</div><div class="ttxt">City → CUF unit → specialty selection.</div></div>
+    <div class="ti"><div class="tl-node"><div class="td on">3</div></div><div class="tlab">Slots</div><div class="ttit">Live availability</div><div class="ttxt">API returns open slots from scheduling system.</div></div>
+    <div class="ti"><div class="tl-node"><div class="td off">4</div></div><div class="tlab">Book</div><div class="ttit">Confirmed</div><div class="ttxt">API creates appointment · patient gets WhatsApp + My CUF confirmation.</div></div>
   </div>
-  <div class="note" style="max-width:900px;margin:28px auto 0"><strong>My CUF stays the system of record.</strong> The assistant handles first contact and routing on WhatsApp — then hands off to My CUF (deep link) or your team when the patient is ready to book or log in.</div>
+  <div class="g2" style="margin-top:20px">
+    <div class="mc">
+      <div class="ml">CUF scheduling stack</div>
+      <p class="ps" style="margin-top:4px">Same engine behind My CUF online bookings. Often <strong style="color:var(--w)">Glintt Globalcare</strong> or proprietary APIs — confirmed with your IT team.</p>
+    </div>
+    <div class="mc">
+      <div class="ml">Integration</div>
+      <p class="ps" style="margin-top:4px">REST / HL7 · slot search · book · cancel. GDPR-compliant middleware. Fallback to Contact Center for complex exams.</p>
+    </div>
+  </div>
 </div>
 </section>
 
@@ -344,23 +354,23 @@ html,body{width:100%;height:100%;height:100dvh;overflow:hidden;background:var(--
   <div class="g2" style="margin-top:28px;align-items:start">
     <div class="card">
       <span class="badge b-w">Phase 1</span><span class="badge b-b" style="margin-left:8px">4–6 weeks</span>
-      <div class="h3" style="margin-top:12px">WhatsApp FAQ + booking requests</div>
-      <ul class="cl" style="margin-top:12px">
-        <li>English + Portuguese menus and replies</li>
-        <li>FAQ: units, specialties, prices, contacts</li>
-        <li>Guided booking request (city → unit → specialty)</li>
-        <li>Admin notification + handoff workflow</li>
-        <li>Basic analytics dashboard</li>
+      <div class="h3" style="margin-top:12px">WhatsApp + API live booking</div>
+      <ul class="cl compact" style="margin-top:12px">
+        <li>IT discovery: scheduling APIs with CUF team</li>
+        <li>EN + PT assistant on WhatsApp</li>
+        <li>FAQ + guided flow to live slots</li>
+        <li>API booking into scheduling system</li>
+        <li>Pilot unit · analytics dashboard</li>
       </ul>
     </div>
     <div class="card">
       <span class="badge b-t">Phase 2</span><span class="badge b-t" style="margin-left:8px">Scale</span>
-      <div class="h3" style="margin-top:12px">Deeper integration &amp; automation</div>
-      <ul class="cl" style="margin-top:12px">
-        <li>Live slot availability (API / My CUF integration)</li>
-        <li>Appointment reminders &amp; rescheduling</li>
-        <li>Preventive care &amp; check-up campaigns</li>
-        <li>Multi-unit rollout beyond pilot region</li>
+      <div class="h3" style="margin-top:12px">Network rollout</div>
+      <ul class="cl compact" style="margin-top:12px">
+        <li>Multi-unit rollout across CUF network</li>
+        <li>Reminders &amp; rescheduling via API</li>
+        <li>Preventive care campaigns</li>
+        <li>My CUF deep links &amp; patient sync</li>
         <li>Management reporting pack</li>
       </ul>
     </div>
@@ -376,10 +386,10 @@ html,body{width:100%;height:100%;height:100dvh;overflow:hidden;background:var(--
   <div class="grid-3" style="margin-top:28px">
     <div class="card"><div class="h3">Healthcare-native</div><p class="p">Prompts, flows and guardrails built for hospitals and clinics — not repurposed e-commerce bots.</p></div>
     <div class="card"><div class="h3">Bilingual from day one</div><p class="p">Native EN and PT in one assistant — critical for Lisbon, expats and international patients.</p></div>
-    <div class="card"><div class="h3">Complements My CUF</div><p class="p">Front door on WhatsApp, portal on My CUF — each channel for the right stage of the patient journey.</p></div>
+    <div class="card"><div class="h3">API-first booking</div><p class="p">We integrate with your scheduling stack — not just capture requests. Live slots, real confirmations.</p></div>
   </div>
   <div class="card" style="margin-top:22px">
-    <p class="p"><strong style="color:var(--w)">Honestly:</strong> we are a focused team, not a generic SaaS vendor. You work directly with the people who build and tune the assistant — and we can demo a live CUF-configured WhatsApp pilot with My CUF handoff, not slides only.</p>
+    <p class="p"><strong style="color:var(--w)">Honestly:</strong> we are a focused team, not a generic SaaS vendor. We can demo the WhatsApp flow today and scope API integration with your IT team on the discovery call.</p>
   </div>
 </div>
 </section>
