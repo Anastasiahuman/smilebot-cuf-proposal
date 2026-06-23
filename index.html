@@ -116,7 +116,7 @@ html,body{width:100%;height:100%;height:100dvh;overflow:hidden;background:var(--
 <body>
 <div id="prog"></div>
 <div id="logo">AMA HEALTH · CUF PORTUGAL · WHATSAPP</div>
-<div id="ctr">01 / 11</div>
+<div id="ctr">01 / 12</div>
 <button class="nb" id="bp" onclick="go(-1)" aria-label="Back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
 <button class="nb" id="bn" onclick="go(1)" aria-label="Next"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
 
@@ -133,14 +133,14 @@ html,body{width:100%;height:100%;height:100dvh;overflow:hidden;background:var(--
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px">
       <span class="pill wa">WhatsApp</span>
       <span class="pill">English + Portuguese</span>
-      <span class="pill pb">24/7 patient access</span>
+      <span class="pill pb">Complements My CUF</span>
       <span class="pill">Booking &amp; FAQ</span>
     </div>
   </div>
   <div class="card" style="padding:36px">
     <div class="ml">What we are proposing</div>
     <div class="h3" style="margin-bottom:14px">An AI assistant on WhatsApp for CUF patients</div>
-    <p class="sub" style="font-size:var(--fs-card);margin-bottom:22px">Answers questions, guides to the right unit and specialty, collects booking requests — synced with CUF's public knowledge base.</p>
+    <p class="sub" style="font-size:var(--fs-card);margin-bottom:22px">A zero-friction front door for patients — complements My CUF, does not replace it. Answers questions, routes to the right unit, collects booking requests.</p>
     <div style="height:1px;background:var(--border);margin-bottom:22px"></div>
     <div class="contact-info">
       <div class="ml" style="margin-bottom:8px">Contact</div>
@@ -190,11 +190,48 @@ html,body{width:100%;height:100%;height:100dvh;overflow:hidden;background:var(--
 </div>
 </section>
 
+<section class="slide" id="s3b">
+<div class="inner">
+  <div class="ey">The obvious question</div>
+  <h2 class="h2">Why WhatsApp if patients already have <span class="am">My CUF</span>?</h2>
+  <p class="sub" style="margin-bottom:28px;max-width:900px">My CUF is your patient portal — excellent for enrolled patients. The assistant is the <strong style="color:var(--w)">front door</strong>: for first contact, quick questions, and people who will never open an app tonight.</p>
+  <div class="grid-2x2" style="gap:18px">
+    <div class="card">
+      <div class="h3">Different moment in the journey</div>
+      <p class="p">My CUF serves patients who already have an account. The assistant serves everyone <em>before</em> that — tourists, new referrals, someone who googled "CUF cardiology Lisbon" at 9pm.</p>
+    </div>
+    <div class="card">
+      <div class="h3">Zero install barrier</div>
+      <p class="p">My CUF: download → register → login. WhatsApp: already on every phone. In Portugal, messaging is the lowest-friction first touch — especially for expats and older patients.</p>
+    </div>
+    <div class="card">
+      <div class="h3">My CUF does not stop the calls</div>
+      <p class="p">Your support centre still gets hundreds of calls for hours, locations, prices, and "which unit?". The app does not absorb that. The assistant does — 24/7, in EN and PT.</p>
+    </div>
+    <div class="card">
+      <div class="h3">Conversation vs navigation</div>
+      <p class="p">An app is menus and forms — great once you know what you need. WhatsApp is natural language: <em>"cardiology near Parque das Nações this week"</em> — no hunting through specialty trees.</p>
+    </div>
+  </div>
+  <div class="g2" style="margin-top:20px">
+    <div class="mc">
+      <div class="ml">My CUF · patient portal</div>
+      <p class="ps" style="margin-top:4px">Records, results, follow-up, booked patients</p>
+    </div>
+    <div class="mc">
+      <div class="ml">WhatsApp assistant · front door</div>
+      <p class="ps" style="margin-top:4px">FAQ, routing, booking requests, after-hours</p>
+    </div>
+  </div>
+  <div class="note" style="margin-top:20px"><strong>They work together, not against each other.</strong> The assistant guides and qualifies — then sends a deep link to My CUF when the patient is ready to book, log in, or confirm. You keep one source of truth; patients get the right channel at the right time.</div>
+</div>
+</section>
+
 <section class="slide" id="s4">
 <div class="inner">
   <div class="ey">Our solution</div>
   <h2 class="h2">AMA Health AI assistant <span class="am">on WhatsApp</span></h2>
-  <p class="sub" style="margin-bottom:28px;max-width:820px">Not a generic chatbot. A healthcare-trained assistant with CUF knowledge, bilingual menus, guided booking and safe handoff to your team when needed.</p>
+  <p class="sub" style="margin-bottom:28px;max-width:820px">Not a replacement for My CUF — an AI layer on WhatsApp that catches patients before they reach your app or call centre. Healthcare-trained, bilingual, with safe handoff when needed.</p>
   <div class="agents">
     <div class="agent"><div class="agent-no">01</div><div class="agent-name">Instant FAQ</div><div class="agent-desc">Units, specialties, hours, contacts, My CUF — answered from your knowledge base in seconds.</div></div>
     <div class="agent"><div class="agent-no">02</div><div class="agent-name">Guided booking</div><div class="agent-desc">City → CUF unit → specialty → request captured. Admin confirms the slot — no phone tag.</div></div>
@@ -219,7 +256,7 @@ html,body{width:100%;height:100%;height:100dvh;overflow:hidden;background:var(--
         <div class="bub u">Parque das Nações</div>
         <div class="bub b">CUF Descobertas — Parque das Nações. Cardiology consultations available. Shall I start a booking request for you?</div>
         <div class="bub u">Yes please</div>
-        <div class="bub b">Done ✓ A CUF administrator will contact you to confirm the time. Indicative consultation fee — confirm via My CUF or reception.</div>
+        <div class="bub b">Done ✓ A CUF administrator will contact you to confirm the time. You can also book directly in My CUF — I'll send you the link.</div>
       </div></div>
     </div>
     <div>
@@ -259,7 +296,7 @@ html,body{width:100%;height:100%;height:100dvh;overflow:hidden;background:var(--
     <div class="ti"><div class="tl-node"><div class="td on">3</div></div><div class="tlab">Match</div><div class="ttit">Specialty</div><div class="ttxt">Guided specialty selection or triage from symptoms — always within safe limits.</div></div>
     <div class="ti"><div class="tl-node"><div class="td off">4</div></div><div class="tlab">Confirm</div><div class="ttit">Request → admin</div><div class="ttxt">Booking request sent to your team; patient gets confirmation in WhatsApp.</div></div>
   </div>
-  <div class="note" style="max-width:900px;margin:28px auto 0">Works alongside My CUF — the assistant handles first contact and routing; your systems keep the source of truth for appointments.</div>
+  <div class="note" style="max-width:900px;margin:28px auto 0"><strong>My CUF stays the system of record.</strong> The assistant handles first contact and routing on WhatsApp — then hands off to My CUF (deep link) or your team when the patient is ready to book or log in.</div>
 </div>
 </section>
 
@@ -330,10 +367,10 @@ html,body{width:100%;height:100%;height:100dvh;overflow:hidden;background:var(--
   <div class="grid-3" style="margin-top:28px">
     <div class="card"><div class="h3">Healthcare-native</div><p class="p">Prompts, flows and guardrails built for hospitals and clinics — not repurposed e-commerce bots.</p></div>
     <div class="card"><div class="h3">Bilingual from day one</div><p class="p">Native EN and PT in one assistant — critical for Lisbon, expats and international patients.</p></div>
-    <div class="card"><div class="h3">Working prototype exists</div><p class="p">We can demo a live CUF-configured WhatsApp assistant — not slides only.</p></div>
+    <div class="card"><div class="h3">Complements My CUF</div><p class="p">Front door on WhatsApp, portal on My CUF — each channel for the right stage of the patient journey.</p></div>
   </div>
   <div class="card" style="margin-top:22px">
-    <p class="p"><strong style="color:var(--w)">Honestly:</strong> we are a focused team, not a generic SaaS vendor. You work directly with the people who build and tune the assistant — decisions in days, not quarters.</p>
+    <p class="p"><strong style="color:var(--w)">Honestly:</strong> we are a focused team, not a generic SaaS vendor. You work directly with the people who build and tune the assistant — and we can demo a live CUF-configured WhatsApp pilot with My CUF handoff, not slides only.</p>
   </div>
 </div>
 </section>
