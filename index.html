@@ -106,6 +106,12 @@ html,body{width:100%;height:100%;height:100dvh;overflow:hidden;background:var(--
 .wa-body{padding:18px;background:#fbfbfd}
 .note{margin-top:20px;padding:20px 24px;border-radius:16px;background:rgba(0,0,0,.03);
   border:1px solid var(--border);font-size:var(--fs-small);color:var(--g1);line-height:1.55}
+.slide-fit .h2{font-size:clamp(34px,4.8vw,52px);margin-bottom:12px}
+.slide-fit .sub{font-size:clamp(17px,1.8vw,20px);margin-bottom:20px}
+.compare{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:stretch;width:100%}
+.compare-mid{display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:600;color:var(--g2)}
+.cl.compact li{margin-bottom:8px;font-size:var(--fs-small);padding-left:20px}
+.cl.compact li::before{top:9px;width:6px;height:6px}
 .contact-name{font-size:30px;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
 .contact-role{font-size:var(--fs-small);color:var(--g2)}
 .contact-info{font-size:var(--fs-card);line-height:1.7}
@@ -190,40 +196,33 @@ html,body{width:100%;height:100%;height:100dvh;overflow:hidden;background:var(--
 </div>
 </section>
 
-<section class="slide" id="s3b">
+<section class="slide slide-fit" id="s3b">
 <div class="inner">
   <div class="ey">The obvious question</div>
-  <h2 class="h2">Why WhatsApp if patients already have <span class="am">My CUF</span>?</h2>
-  <p class="sub" style="margin-bottom:28px;max-width:900px">My CUF is your patient portal — excellent for enrolled patients. The assistant is the <strong style="color:var(--w)">front door</strong>: for first contact, quick questions, and people who will never open an app tonight.</p>
-  <div class="grid-2x2" style="gap:18px">
-    <div class="card">
-      <div class="h3">Different moment in the journey</div>
-      <p class="p">My CUF serves patients who already have an account. The assistant serves everyone <em>before</em> that — tourists, new referrals, someone who googled "CUF cardiology Lisbon" at 9pm.</p>
+  <h2 class="h2">Why WhatsApp if you have <span class="am">My CUF</span>?</h2>
+  <p class="sub" style="max-width:720px">My CUF is the portal. WhatsApp is how patients arrive.</p>
+  <div class="compare">
+    <div class="card" style="padding:22px 24px">
+      <div class="ml">WhatsApp · front door</div>
+      <ul class="cl compact">
+        <li>First contact — no install</li>
+        <li>FAQ &amp; routing, 24/7</li>
+        <li>Before the patient has an account</li>
+        <li>Stops repetitive calls to support</li>
+      </ul>
     </div>
-    <div class="card">
-      <div class="h3">Zero install barrier</div>
-      <p class="p">My CUF: download → register → login. WhatsApp: already on every phone. In Portugal, messaging is the lowest-friction first touch — especially for expats and older patients.</p>
-    </div>
-    <div class="card">
-      <div class="h3">My CUF does not stop the calls</div>
-      <p class="p">Your support centre still gets hundreds of calls for hours, locations, prices, and "which unit?". The app does not absorb that. The assistant does — 24/7, in EN and PT.</p>
-    </div>
-    <div class="card">
-      <div class="h3">Conversation vs navigation</div>
-      <p class="p">An app is menus and forms — great once you know what you need. WhatsApp is natural language: <em>"cardiology near Parque das Nações this week"</em> — no hunting through specialty trees.</p>
-    </div>
-  </div>
-  <div class="g2" style="margin-top:20px">
-    <div class="mc">
+    <div class="compare-mid">+</div>
+    <div class="card" style="padding:22px 24px">
       <div class="ml">My CUF · patient portal</div>
-      <p class="ps" style="margin-top:4px">Records, results, follow-up, booked patients</p>
-    </div>
-    <div class="mc">
-      <div class="ml">WhatsApp assistant · front door</div>
-      <p class="ps" style="margin-top:4px">FAQ, routing, booking requests, after-hours</p>
+      <ul class="cl compact">
+        <li>Records, results, follow-up</li>
+        <li>Booking for enrolled patients</li>
+        <li>Source of truth for care</li>
+        <li>Deep link when patient is ready</li>
+      </ul>
     </div>
   </div>
-  <div class="note" style="margin-top:20px"><strong>They work together, not against each other.</strong> The assistant guides and qualifies — then sends a deep link to My CUF when the patient is ready to book, log in, or confirm. You keep one source of truth; patients get the right channel at the right time.</div>
+  <div class="note" style="margin-top:22px;padding:16px 22px"><strong>Together, not instead.</strong> Assistant on WhatsApp → My CUF when ready to book or log in.</div>
 </div>
 </section>
 
